@@ -16,7 +16,7 @@ const PerchasePage = () => {
 
     setTimeout(() => {
       navigate('/'); // ניווט לדף הבית אחרי 1 שנייה
-    }, 1000);
+    }, 3000);
   };
 
   const handleGoToProducts = () => {
@@ -57,7 +57,6 @@ const PerchasePage = () => {
   <p class="total">Total:$ {totalAmount}</p>
   <p class="invoice-info">A confirmation email with the invoice will be sent to your email address.</p>
 </div>
-<button class="confirm-btn">Confirm Purchase</button>
 
 
           {/* כפתור "Confirm Purchase" יוצג רק אם יש מוצרים בעגלה */}

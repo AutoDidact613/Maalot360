@@ -13,7 +13,7 @@ import { UserProvider } from './Context/UserContext';
 import './css/App.css';
 import { CartProvider } from './Context/CartContext';
 import PerchasePage from './components/PerchasePage';
-
+import AdminPanel from './components/AdminPanel';  // הוסף את השורה הזו
 
 
 
@@ -106,6 +106,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/purchase" element={<PerchasePage />} />
+          <Route path="/admin-panel" element={<AdminPanel />} /> {/* פאנל המנהל */}
 
         </Routes> 
         </CartProvider>

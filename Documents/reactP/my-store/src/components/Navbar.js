@@ -40,7 +40,8 @@ const Navbar = () => {
                 <FiLogOut
                   size={20}
                   className="logout-icon"
-                  onClick={logoutUser}
+                
+           
                 />  </button>
             </div>
           ) : (
