@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  font-family: 'Fredoka One', cursive;
+}
+
+nav {
+  display: flex;
+  justify-content: center;  /* Changed from space-between to center */
+  align-items: center;
+  background: #a8f1b6;
+  padding: 10px 30px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+
+.nav-links {
+  display: flex;
+  justify-content: center;  /* Changed from space-around to center */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;  /* Added to center the container itself */
+}
+
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: rgb(12, 3, 3);
+  text-decoration: none;
+  padding: 5px 15px;
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #ffd93d;
+  transition: width 0.2s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #efffa9;
+  transform: scale(1.1);
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.cart-icon img {
+  height: 25px;
+  margin-left: 5px;
+}
+
+/* שמירה על רספונסיביות */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+.logout-icon {
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+ 
+.App {
+  padding-top: 90px; /* להתאים את הערך לגובה ה-Navbar */
+}
+.cart-icon {
+  color: #007BFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.cart-icon:hover {
+  color: #0056b3;
+  transform: scale(1.2); /* האייקון יגדל מעט בריחוף */
+}

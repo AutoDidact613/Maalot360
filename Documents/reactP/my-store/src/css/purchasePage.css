@@ -1,0 +1,70 @@
+/* הודעת האישור */
+.invoice-info {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #2c5282;
+  font-weight: 500;
+  margin: 20px 0;
+  position: relative;
+}
+
+.invoice-info::after {
+  content: '';
+  display: block;
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, #2c5282, #38a169);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* מחיר כולל - טוטאל */
+.total {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c5282;
+  text-align: center;
+  background: linear-gradient(90deg, #38a169, #2c5282);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 20px 0;
+}
+
+.total::before {
+
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.total-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* כפתור האישור */
+.confirm-btn {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 15px;
+  background: linear-gradient(90deg, #2c5282, #38a169);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.confirm-btn:hover {
+  background: linear-gradient(90deg, #38a169, #2c5282);
+  transform: scale(1.05);
+}
+.purchase-items {
+  list-style-type: none; /* מסיר את הנקודות */
+  padding: 0; /* מסיר את הרווח מסביב */
+  margin: 0; /* מסיר את הרווח מסביב */
+}
