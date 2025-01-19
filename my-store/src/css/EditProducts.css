@@ -1,0 +1,79 @@
+.edit-products-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .product-list {
+    margin-bottom: 20px;
+  }
+  
+  .product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .edit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .edit-section {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .edit-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .save-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .save-button:hover {
+    background-color: #218838;
+  }
+  

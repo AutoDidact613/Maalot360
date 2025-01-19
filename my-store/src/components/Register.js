@@ -8,7 +8,6 @@ const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    idNumber: '',  // הוספת שדה תעודת זהות
     password: '',
     confirmPassword: ''
   });

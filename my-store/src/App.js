@@ -10,10 +10,10 @@ import ContactPage from './components/ContactPage';
 import Login from './components/Login';
 import Register from './components/Register';
 import { UserProvider } from './Context/UserContext';
-import { UserProvider1} from './Context/UserContext';
 import './css/App.css';
 import { CartProvider } from './Context/CartContext';
 import PerchasePage from './components/PerchasePage';
+import AdminPanel from './components/AdminPanel'; // ייבוא רכיב דף מנהל
 
 
 
@@ -91,7 +91,6 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-       
         <UserProvider>
         <CartProvider>
         <Routes>
@@ -104,10 +103,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/purchase" element={<PerchasePage />} />
+          <Route path="/admin" element={<AdminPanel />} />
+
         </Routes> 
         </CartProvider>
          </UserProvider>
-       
+
       </div>
     </Router>
   );

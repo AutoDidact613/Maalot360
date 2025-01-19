@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import logo from '../images/logo.jpg'; // נתיב לתמונה
 import { useContext } from 'react';
 import { UserContext } from '../Context/UserContext';
-import '../css/Navbar.css';
 import { FiLogOut } from 'react-icons/fi';  // This is the correct import
 import { FiShoppingCart } from 'react-icons/fi';
+import '../css/Navbar.css';
 
 
 const Navbar = () => {
-  const { currentUser, logoutUser } = useContext(UserContext);
+  const { currentUser, logoutUser ,isAdmin} = useContext(UserContext);
 
   return (
     <nav className="navbar">
@@ -30,9 +30,14 @@ const Navbar = () => {
         <Link to="/purchase">PerchasePage</Link>
         <Link to="/cart">Cart</Link>
         <Link to="/contact">Contact Us</Link>
-        
+        {currentUser && isAdmin && (
+        <Link to="/admin">Admin Panel</Link>
+         )}
+
 
         <div className="user-section">
+
+
           {currentUser ? (
             <div className="user-controls">
               <span className="user-greeting">שלום,{currentUser.name}</span>

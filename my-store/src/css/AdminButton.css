@@ -1,0 +1,27 @@
+.admin-button-container {
+    text-align: center; /* מרכז את הכפתור */
+    margin-top: 40px; /* ריווח עליון */
+  }
+  
+  .admin-button-container button {
+    background: linear-gradient(90deg, #007BFF, #00C6FF); /* צבע מעבר מגניב */
+    border: none;
+    border-radius: 25px; /* פינות עגולות */
+    color: white;
+    padding: 8px 16px; /* גודל פנימי קטן */
+    font-size: 14px; /* טקסט קטן */
+    cursor: pointer;
+    transition: all 0.3s ease; /* אנימציית מעבר */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* צל קטן */
+  }
+  
+  .admin-button-container button:hover {
+    background: linear-gradient(90deg, #0056b3, #0099cc); /* שינוי גוון במעבר עכבר */
+    transform: scale(1.05); /* הגדלה קטנה */
+  }
+  
+  .admin-button-container button:active {
+    transform: scale(0.95); /* הקטנה בלחיצה */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* שינוי צל בלחיצה */
+  }
+  

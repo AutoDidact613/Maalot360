@@ -6,15 +6,37 @@ export const UserContext = createContext({
   loginUser: () => {},
   registerUser: () => {},
   users: [],
+  products: [],
   addUser: () => {},
   getUsers: () => [],
-  isAdmin: false  // הוספת שדה לזהות אם המשתמש הוא מנהל
+  updateProduct: () => {}, 
+  isAdmin: false,
 });
 
 export const UserProvider = ({ children }) => {
+  const [users, setUsers] = useState([
+    { password: '1234', name: 'manager', email: 'manager@gmail.com', isAdmin: true },
+    { password: '2', name: 'yaeli', email: 'y@gmail.com', isAdmin: false },
+    { password: '3', name: 'miri', email: 'm@gmail.com', isAdmin: false },
+    { password: '4', name: 'bimyamin', email: 'bimyamin@gmail.com', isAdmin: false },
+  ]);
+
+  const [products, setProducts] = useState([
+    { id: 1, name: 'Product 1' },
+    { id: 2, name: 'Product 2' },
+    { id: 3, name: 'Product 3' },
+  ]);
+
   const [currentUser, setCurrentUser] = useState(null);
-  const [users, setUsers] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);  // מצב לזיהוי אם המשתמש הוא מנהל
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const updateProduct = (updatedProduct) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      )
+    );
+  };
 
   const addUser = (userData) => {
     setUsers((prevUsers) => [...prevUsers, userData]);
@@ -24,20 +46,19 @@ export const UserProvider = ({ children }) => {
 
   const logoutUser = () => {
     setCurrentUser(null);
-    setIsAdmin(false);  // נוודא שכאשר המשתמש מתנתק, הסטטוס לא יהיה מנהל
+    setIsAdmin(false);
   };
 
-  const loginUser = (userData) => {
-    setCurrentUser(userData);
+  const loginUser = (email, password) => {
+    const user = users.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (user) {
+      setCurrentUser(user);
+      setIsAdmin(user.isAdmin);
 
-    const adminPassword = "1234"; 
-    const adminEmail="manager@gmail.com";
-
-     // תעודת זהות של המנהל
-    if (userData.password === adminPassword &&userData.email===adminEmail) {
-      setIsAdmin(true);  //  , הפוך את המשתמש למנהל
     } else {
-      setIsAdmin(false);
+      alert('Invalid email or password');
     }
   };
 
@@ -45,9 +66,10 @@ export const UserProvider = ({ children }) => {
     setCurrentUser(userData);
     addUser(userData);
 
-    const adminID = "123456789";  // תעודת זהות של המנהל
-    if (userData.idNumber === adminID) {
-      setIsAdmin(true);  // אם תעודת הזהות היא של המנהל, הפוך את המשתמש למנהל
+    const adminEmail = 'manager@gmail.com';
+    const adminPassword = '1234';
+    if (userData.email === adminEmail && userData.password === adminPassword) {
+      setIsAdmin(true);
     } else {
       setIsAdmin(false);
     }
@@ -61,9 +83,11 @@ export const UserProvider = ({ children }) => {
         loginUser,
         registerUser,
         users,
+        products,
         addUser,
         getUsers,
-        isAdmin  // נוסיף את הסטטוס של המנהל פה
+        updateProduct, // הוספת הפונקציה לפנל של הקונטקסט
+        isAdmin,
       }}
     >
       {children}
