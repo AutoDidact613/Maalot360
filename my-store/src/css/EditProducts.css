@@ -76,4 +76,25 @@
   .save-button:hover {
     background-color: #218838;
   }
+  .edit-section {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .edit-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  textarea.edit-input {
+    height: 60px; /* Adjust height for the description field */
+  }
+  
+  /* Other styles remain the same */
   

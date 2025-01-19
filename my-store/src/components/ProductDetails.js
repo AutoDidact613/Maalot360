@@ -15,6 +15,7 @@ const ProductDetails = ({ products }) => {
 
   const handleAddToCart = () => {
     // הוספת המוצר לסל דרך הקונטקסט
+    // הלחיצה על הוסף לסל יפעיל את הפוקציה שהוגדרה בקונטקסט ותוסיף את המוצר לסל
     addToCart(product);
     // מעבר לעמוד CartPage
     navigate('/cart');
@@ -27,6 +28,7 @@ const ProductDetails = ({ products }) => {
       <div className="product-info">
         <p className="product-price">Price: ${product.price}</p>
         <p className="product-description">{product.description}</p>
+        {/* בלחיצה פה נשלח לפנקציה שהוגדרה בקונטקסט */}
         <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>

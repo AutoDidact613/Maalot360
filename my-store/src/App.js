@@ -16,9 +16,10 @@ import PerchasePage from './components/PerchasePage';
 import AdminPanel from './components/AdminPanel'; // ייבוא רכיב דף מנהל
 
 
+// מידע על המוצרים
 
 function App() {
-  const [products] = useState([
+  const [products,setProducts] = useState([
     {
       id: 1,
       name: 'Nalgene Water Bottle - On the Fly',
@@ -84,6 +85,7 @@ function App() {
     },
 
   ]);
+  
 
  
 
@@ -91,19 +93,20 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        <UserProvider>
+        <UserProvider  products={products}setProducts={setProducts} >
         <CartProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/products" element={<ProductsPage products={products} />} />
-          <Route    path="/products/:id" element={<ProductDetails products={products} />}   />
+          <Route path="/products/:id" element={<ProductDetails products={products} />}   />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/purchase" element={<PerchasePage />} />
           <Route path="/admin" element={<AdminPanel />} />
+
 
         </Routes> 
         </CartProvider>

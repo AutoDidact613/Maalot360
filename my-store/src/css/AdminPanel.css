@@ -1,0 +1,146 @@
+/* AdminPanel.css */
+.admin-panel {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-panel h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .admin-panel h3 {
+    font-size: 22px;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  /* User List */
+  .user-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .user-card {
+    flex: 1 1 calc(33.333% - 15px); /* 3 cards per row with space */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .user-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .user-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .user-email {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* EditProducts.css */
+  .edit-products-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-products-container h3.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .product-list {
+    margin-bottom: 20px;
+  }
+  
+  .product-item {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: box-shadow 0.2s;
+  }
+  
+  .product-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-name {
+    font-size: 18px;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .product-price, .product-quantity, .product-description, .product-image {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .edit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: flex-start; /* Align button to the left */
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .edit-section {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .edit-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .save-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .save-button:hover {
+    background-color: #218838;
+  }
+  

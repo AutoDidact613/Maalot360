@@ -12,11 +12,11 @@ const PerchasePage = () => {
 
     setTimeout(() => {
       clearCart(); // ריקון העגלה אחרי 3 שניות
-    }, 3000);
+    }, 7000);
 
     setTimeout(() => {
-      navigate('/'); // ניווט לדף הבית אחרי 1 שנייה
-    }, 3000);
+      navigate('/'); // ניווט לדף הבית אחרי 6 שנייה
+    }, 6000);
   };
 
   const handleGoToProducts = () => {

@@ -24,6 +24,7 @@ const Navbar = () => {
       <Link to="/cart" className="cart-icon">
   <FiShoppingCart size={24} />
 </Link>
+{/* //בדף הבית הוצגו הקישורים הבאים בלחיצה עליהם האתר ניתב את המשתמש לדך הרצוי את הנתיבים שפה הגדרנו במייאפ  */}
         <Link to="/">Home</Link>
         <Link to="/about">About Us</Link>
         <Link to="/products">Products</Link>
@@ -50,6 +51,7 @@ const Navbar = () => {
                 />  </button>
             </div>
           ) : (
+            // קישורים להרשמה וכניסה למערכת
             <div className="auth-links">
               <Link to="/login">Login</Link>
               <Link to="/register">Register</Link>

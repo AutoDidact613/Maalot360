@@ -14,7 +14,7 @@ const CartPage = () => {
   const handleGoToProducts = () => {
     navigate('/products');
   };
-
+// המידע על העגלה נמצא פה וכולל את כל המוצרים שנשלחו לעגלה וכן פונקציות עריכה
   return (
     <div className='cart-page'>
       <h1>Your Cart</h1>
@@ -34,6 +34,7 @@ const CartPage = () => {
                 <p className="item-price">${product.price}</p>
               </div>
               <div className="quantity-controls">
+                {/* הורדת כמות מוצר */}
                 <button 
                   className="quantity-btn"
                   onClick={() => decreaseQuantity(product.id)}
@@ -41,6 +42,7 @@ const CartPage = () => {
                   −
                 </button>
                 <span className="quantity">{product.quantity}</span>
+                {/* הגדלת כמות מוצר */}
                 <button 
                   className="quantity-btn"
                   onClick={() => increaseQuantity(product.id)}
@@ -48,6 +50,7 @@ const CartPage = () => {
                   +
                 </button>
               </div>
+              {/* הסרת מוצר */}
               <button 
                 className="remove-btn"
                 onClick={() => removeItem(product.id)}
@@ -58,6 +61,7 @@ const CartPage = () => {
           ))}
         </ul>
       )}
+      {/* סכום סופי לקניה */}
       <div className="cart-summary">
         <h3 className="total">Total: ${totalAmount}</h3>
         <h4 className="items-count">Items in cart: {cartCount}</h4>

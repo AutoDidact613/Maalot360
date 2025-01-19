@@ -13,21 +13,15 @@ export const UserContext = createContext({
   isAdmin: false,
 });
 
-export const UserProvider = ({ children }) => {
+export const UserProvider = ({ children, products, setProducts }) => {
   const [users, setUsers] = useState([
     { password: '1234', name: 'manager', email: 'manager@gmail.com', isAdmin: true },
-    { password: '2', name: 'yaeli', email: 'y@gmail.com', isAdmin: false },
-    { password: '3', name: 'miri', email: 'm@gmail.com', isAdmin: false },
-    { password: '4', name: 'bimyamin', email: 'bimyamin@gmail.com', isAdmin: false },
-  ]);
+    { password: '124', name: 'moshe', email: 'm@gmail.com', isAdmin: false },
 
-  const [products, setProducts] = useState([
-    { id: 1, name: 'Product 1' },
-    { id: 2, name: 'Product 2' },
-    { id: 3, name: 'Product 3' },
   ]);
 
   const [currentUser, setCurrentUser] = useState(null);
+  //האם מנהל? מאותחל בשקר
   const [isAdmin, setIsAdmin] = useState(false);
 
   const updateProduct = (updatedProduct) => {
@@ -48,26 +42,35 @@ export const UserProvider = ({ children }) => {
     setCurrentUser(null);
     setIsAdmin(false);
   };
-
+//פונקצצית כניסה  למערכת
   const loginUser = (email, password) => {
     const user = users.find(
       (user) => user.email === email && user.password === password
     );
     if (user) {
       setCurrentUser(user);
+      // בדיקה אם המשתמש הוא מנהל
       setIsAdmin(user.isAdmin);
-
     } else {
       alert('Invalid email or password');
     }
   };
 
   const registerUser = (userData) => {
+    const existingUser = users.find(user => user.email === userData.email);
+  
+    if (existingUser) {
+      alert('This email is already registered.');
+      return;
+    }
+  
     setCurrentUser(userData);
     addUser(userData);
-
+  
+//הגדרה מיהוא המנהל
     const adminEmail = 'manager@gmail.com';
     const adminPassword = '1234';
+    //אם כל הנתונים שהוזמנו תואמים לנתוני המנהל אז זה יהיה אמת אם לא שקר.
     if (userData.email === adminEmail && userData.password === adminPassword) {
       setIsAdmin(true);
     } else {
@@ -86,11 +89,11 @@ export const UserProvider = ({ children }) => {
         products,
         addUser,
         getUsers,
-        updateProduct, // הוספת הפונקציה לפנל של הקונטקסט
+        updateProduct,
         isAdmin,
       }}
     >
-      {children}
+      {children} 
     </UserContext.Provider>
   );
 };

@@ -13,40 +13,33 @@ import Register from "./components/Register";
 
 const MyApp = () => {
 
-  
+
   return (
-    <>
-        <div>
-      <h1>Welcome to My Summer Camp Store!</h1>
+    <> <div>
       <ProductsPage products={Products} />
     </div>
       <header>
-        <h1>Pack To Camp</h1>
         <nav>
-          {/* ניווט בין הדפים באתר */}
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/cart">Cart</Link>
-          <Link to="/purchase">Perchase Page</Link>
+          
         </nav>
       </header>
-      
+
       <main>
-      <Routes>
-  <Route path="/" element={<HomePage />} />
-  <Route path="/about" element={<AboutPage />} />
-  <Route path="/contact" element={<ContactPage />} />
-  <Route path="/cart" element={<CartPage />} />
-  <Route path="/purchase" element={<PerchasePage />} />
-  <Route path="/products" element={<ProductsPage products={Products} addToCart={addToCart} />} />
-  <Route path="/products/:id" element={<ProductDetails products={Products}  />} />
-  <Route path="/login" element={<Login />} />
-  <Route path="/register" element={<Register />} />
-</Routes>
+        {/* הגדרנו ניתובים מעצמינו ולאן כל ניתוב יוביל אותנו */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/purchase" element={<PerchasePage />} />
+          <Route path="/products" element={<ProductsPage products={Products} addToCart={addToCart} />} />
+          <Route path="/products/:id" element={<ProductDetails products={Products} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
 
       </main>
-      
+
       <footer>
         <p>כל הזכויות שמורות</p>
       </footer>
