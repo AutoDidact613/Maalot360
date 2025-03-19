@@ -4,8 +4,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      {/* <h1>Maalot 360</h1> */}
+
       <h1>Maalot 360</h1>
-    </div>
+      </div>
   );
 }
 
