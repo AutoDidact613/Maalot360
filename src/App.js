@@ -13,6 +13,8 @@ import Navigation from './components/Navigation';
 
 function App() {
   return (
+    <>
+    <p>hi</p>
     <Router>
       <Navigation />
       <Routes>
@@ -26,6 +28,7 @@ function App() {
         <Route path="/chat" element={<Chat />} />
       </Routes>
     </Router>
+    </>
   );
 }
 
