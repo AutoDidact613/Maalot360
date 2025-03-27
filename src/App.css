@@ -1,3 +1,6 @@
+/* *{
+  direction: rtl;
+}
 .App {
   text-align: center;
 }
@@ -35,4 +38,29 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.rbc-calendar {
+  direction: rtl;
+  text-align: right;
+}
+
+.rbc-time-view {
+  direction: ltr;
+}
+.rbc-event {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%; 
+  width: 100%; 
+  white-space: normal;
+  word-wrap: break-word; 
+  background-color:#6890b1  !important; /* משנה לרקע לבן */
+  color: #000000 !important; /* משנה את צבע הטקסט לשחור */
+  border: 1px solid #6890b1 !important; /* מוסיף מסגרת */
+}
+
+.rbc-event:focus, .rbc-event:hover {
+  background-color: #2c56a4 !important; /* רקע אפור בהיר כאשר עומדים על האירוע */
 }
