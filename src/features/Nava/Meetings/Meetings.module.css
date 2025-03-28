@@ -1,0 +1,100 @@
+.meetings-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    font-family: "Arial", sans-serif;
+
+  }
+  
+  h2 {
+    text-align: center;
+    color: #D35400; /* כתום כהה */
+    border-bottom: 3px solid #E67E22; /* אפרסק */
+    padding-bottom: 10px;
+  }
+  
+  .meetings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .meeting-card {
+    background: #fef6f0; /* רקע אפרסק עדין */
+    border: 2px solid #D35400; /* מסגרת כתומה */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .meeting-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+    background: #f9e0d0;
+  }
+  
+  .meeting-details {
+    background: #ffffff;
+    border: 2px solid #E67E22; /* מסגרת אפרסק */
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .meeting-details h2 {
+    color: #D35400;
+    margin-bottom: 15px;
+  }
+  
+  .meeting-details p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #333;
+  }
+  
+  .close-button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #E67E22, #D35400);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    /* transition: background 0.3s, transform 0.2s; */
+  }
+  
+  .close-button:hover {
+    background: linear-gradient(135deg, #D35400, #A04000);
+    transform: scale(1.05);
+  }
+  
+  a {
+    color: #D35400;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* כפתורים מעוצבים */
+  .button {
+    background: #D35400;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    /* transition: background 0.3s ease-in-out; */
+  }
+  
+  .button:hover {
+    background: #A04000;
+  }
+  
