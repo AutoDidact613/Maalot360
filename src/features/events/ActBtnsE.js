@@ -1,16 +1,19 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+// import React, { useState } from "react";
+// import AddEventForm from "../events/AddEventForm";
 
-// const CallsDetails = () => {
-//   const inComingCalls = useSelector((state) => state.callDetails.inComingCalls);
-//   // const outGoingCalls=useSelector((state)=>state.CallsDetails.outGoingCalls);
-//   const postponedCalls = useSelector((state) => state.callDetails.postponedCalls);
+// const ActBtns = ({ date }) => {
+//   const [showForm, setShowForm] = useState(false);
+//   const defaultDate = date ? new Date(date) : new Date(); // ודא שהתאריך תמיד מוגדר
 
 //   return (
 //     <div>
-//       <p> {postponedCalls} לא נענו| {inComingCalls} נכנסו</p>
+//       {!showForm ? (
+//         <button onClick={() => setShowForm(true)}>הוספת אירוע</button>
+//       ) : (
+//         <AddEventForm date={defaultDate} onClose={() => setShowForm(false)} />
+//       )}
 //     </div>
-//   )
-// }
+//   );
+// };
 
-export default CallsDetails
+// export default ActBtns;
