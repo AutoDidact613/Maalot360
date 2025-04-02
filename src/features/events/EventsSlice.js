@@ -3,9 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [
   { 
     id: 1, 
-    title: "מפגש", 
-    start: new Date(2025, 3, 7, 17, 30), 
-    end: new Date(2025, 3, 6, 18, 30),
+    title: "מפגש השתלמות מס' 1",
+    type:"מפגשים", 
+    start: new Date(2025, 3, 4, 17, 30), 
+    end: new Date(2025, 3, 4, 17, 30),
     importance: "3", 
     eventMessage: " סמינר מעלות בשעה:12:00",
     visible:true
@@ -13,20 +14,33 @@ const initialState = [
   { 
     id: 2, 
     title: "הגשת פרויקט", 
+    type:"הגשות",
     start: new Date(2025, 3, 18, 10, 0), 
     end: new Date(2025, 3, 18, 10, 0),
     importance: "2", 
-    eventMessage: "הגשת מסמכים וסיכום תיעוד",
+    eventMessage: "הגשת הקוד+תיעוד בסרטון",
     visible:true
 
   },
   { 
     id: 3, 
     title: " מפגש בזום", 
-    start: new Date(2025, 2, 10, 10, 0), 
-    end: new Date(2025, 2, 10, 12, 0),
+    type:"זום",
+    start: new Date(2025, 3, 7, 10, 0), 
+    end: new Date(2025, 3, 7, 12, 0),
     importance: "2", 
     eventMessage: "הנחיות לגבי הגשת הפרויקט",
+    visible:true
+
+  },
+  { 
+    id: 4, 
+    title: " מפגש השתלמות מס' 2", 
+    type:"מפגשים",
+    start: new Date(2025, 3, 15, 10, 0), 
+    end: new Date(2025, 3, 15, 12, 0),
+    importance: "2", 
+    eventMessage: " סמינר מעלות בשעה:16:30",
     visible:true
 
   },

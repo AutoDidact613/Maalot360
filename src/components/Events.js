@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import EventForm from "../features/events/AddEventForm";
+import EventForm from "../features/events/EventForm";
 import { deleteEvent } from "../features/events/EventsSlice";
 
 const localizer = momentLocalizer(moment);
@@ -27,18 +27,28 @@ function Events() {
     });
   };
     
-  const CustomEvent = ({ event }) => (
-    <div style={{ padding: "2px", borderRadius: "3px", background: "#6890b1" }}>
-      <span style={{ fontSize: "1em", color: "#333" }}>{event.title}</span> <br />
-      <span style={{ fontSize: "0.8em", color: "#333" }}>📄{event.eventMessage}</span> <br />
-      <span style={{ fontSize: "0.2em", fontWeight: "bold", color: "#1565c0" }}>{event.location}</span>
-      <button onClick={() => deleteE(event.id)}>מחיקת אירוע</button>
-      <button onClick={() => {
-        setCurrentEvent(event);
-        setShowForm(true);
-      }}>עדכון אירוע</button>
-    </div>
-  );
+  const CustomEvent = ({ event }) => {
+    const eventStyles = {
+      "הגשות": { background: "#87cefa" }, 
+      "מפגשים": { background: "#1e90ff" }, 
+      "זום": { background: "#6495ed" }, 
+    };
+
+    const defaultStyle = { background: "#E0E0E0" }; 
+    const style = eventStyles[event.type] || defaultStyle;
+
+    return (
+      <div style={{ padding: "10px", borderRadius: "3px", ...style }}>
+        <span style={{ fontSize: "1em", color: "#333" }}>{event.title}</span> <br />
+        <span style={{ fontSize: "0.8em", color: "#333" }}>📄{event.eventMessage}</span> <br />
+        <button onClick={() => deleteE(event.id)}>מחיקת אירוע</button>
+        <button onClick={() => {
+          setCurrentEvent(event);
+          setShowForm(true);
+        }}>עדכון אירוע</button>
+      </div>
+    );
+  };
 
   return (
     <div>
