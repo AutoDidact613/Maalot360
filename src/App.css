@@ -39,7 +39,7 @@
     transform: rotate(360deg);
   }
 } */
-/* .rbc-calendar {
+.rbc-calendar {
   direction: rtl;
   text-align: right;
 }
@@ -58,4 +58,4 @@
   word-wrap: break-word; 
   
 }
- */
+
