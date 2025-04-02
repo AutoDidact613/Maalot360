@@ -39,8 +39,11 @@ const eventSlice = createSlice({
     addEvent: (state, action) => {
       state.push(action.payload);
     },
+    deleteEvent: (state, action) => {
+      return state.filter((event) => event.id !== action.payload.id);
+    },
   },
 });
 
-export const { addEvent } = eventSlice.actions;
+export const { addEvent ,deleteEvent} = eventSlice.actions;
 export default eventSlice.reducer;
