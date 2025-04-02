@@ -51,11 +51,9 @@ const eventSlice = createSlice({
   initialState,
   reducers: {
     addEvent: (state, action) => {
-      if (action.payload.id) {
-        const index = state.findIndex(event => event.id === action.payload.id);
-        if (index !== -1) {
-          state[index] = action.payload;
-        }
+      const existingEventIndex = state.findIndex(event => event.id === action.payload.id);
+      if (existingEventIndex !== -1) {
+        state[existingEventIndex] = action.payload; 
       } else {
         state.push({ ...action.payload, id: Date.now(), visible: true });
       }
