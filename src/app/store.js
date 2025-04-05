@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import meetingsReducer from "../features/Nava/Meetings/MeetingsSlice";
+import taskReducer from '../featuers/lecturer/taskSlice'
+import meetingsReducer from "../featuers/Nava/Meetings/MeetingsSlice";
 
 export const store = configureStore({
   reducer: {
-    meetings: meetingsReducer, 
+     taskSlice:taskReducer,
+     meetings: meetingsReducer
   },
 })
