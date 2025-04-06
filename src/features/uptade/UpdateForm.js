@@ -34,7 +34,7 @@ const UpdateForm = ({ onClose, update }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updateId = update ? update.id : Date.now(); // Use existing ID for updates, new ID for new events
+    const updateId = update ? update.id : Date.now(); 
     dispatch(addUpdate({ ...updateData, id: updateId }));
     onClose();
   };
