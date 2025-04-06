@@ -6,8 +6,8 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import EventForm from "../features/events/EventForm";
 import { deleteEvent } from "../features/events/EventsSlice";
-import { deleteUpdate } from "../features/uptade/UpdatesSlice";
-import UpdateForm from "../features/uptade/UpdateForm";
+import { deleteUpdate } from "../features/update/UpdatesSlice";
+import UpdateForm from "../features/update/UpdateForm";
 import  "../App.css";
 const localizer = momentLocalizer(moment);
 
