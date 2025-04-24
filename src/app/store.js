@@ -1,14 +1,17 @@
 
 
 import { configureStore } from '@reduxjs/toolkit'
-import chatReducer from '../features/Chat/chatSlice';
+import chatReducer from '../featuers/Chat/chatSlice';
 import taskReducer from '../featuers/lecturer/taskSlice'
-import tasksReducer from '../features/tasks/tasksSlice'; 
+import meetingsReducer from "../featuers/Nava/Meetings/MeetingsSlice";
+
 export const store = configureStore({
   reducer: {
-     tasks: tasksReducer,
+     tasks: taskReducer,
      taskSlice:taskReducer,
-     chat: chatReducer
+     chat: chatReducer,
+    //  taskSlice:taskReducer,
+     meetings: meetingsReducer
   },
 })
 
