@@ -5,29 +5,25 @@ function LearningSpace() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [lessonContent, setLessonContent] = useState("");
 
-  const openPopUp = () => {
-    setIsPopupOpen(true);
-  };
-
+  const openPopUp = () => setIsPopupOpen(true);
   const closePopUp = () => {
     setIsPopupOpen(false);
-    console.log("תוכן השיעור שנשמר:", lessonContent); // ניתן לשמור זאת במיקום אחר
+    console.log("תוכן השיעור שנשמר:", lessonContent);
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.buttonsHeader}>
-        <button className={styles.mainButton}>שיתוף מסך</button>
-        <button className={styles.mainButton}>שיתוף מסך תלמיד</button>
-        <button className={styles.mainButton}>התחל הקלטה</button>
+      <div className={styles.mainArea}>
+        <div className={styles.cameraBox}>📷 שידור המורה</div>
+      </div>
 
-        <div className={styles.smallButtons}>
-          <button className={styles.smallButton}>המשך</button>
-          <button className={styles.smallButton}>השהה</button>
-          <button className={styles.smallButton} onClick={openPopUp}>
-            שמירה
-          </button>
-        </div>
+      <div className={styles.buttonsHeader}>
+        <button className={styles.mainButton}>🎥 התחלת הקלטה</button>
+        <button className={styles.mainButton}>🖥️ שיתוף מסך</button>
+        <button className={styles.mainButton}>👨‍🎓 שיתוף מסך תלמיד</button>
+        <button className={styles.mainButton} onClick={openPopUp}>
+          💾 שמור תוכן שיעור
+        </button>
       </div>
 
       {isPopupOpen && (

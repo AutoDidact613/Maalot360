@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Navigation = () => {
   return (
     <nav>
@@ -13,6 +14,8 @@ const Navigation = () => {
         <li><Link to="/tasks">Tasks</Link></li>
         <li><Link to="/attendance">Attendance</Link></li>
         <li><Link to="/chat">Chat</Link></li>
+        <li><Link to="/meetings">Meetings</Link></li>
+
       </ul>
     </nav>
   );

@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import  TaskList  from './featuers/lecturer/TaskList';
-import { AddTask } from './featuers/lecturer/AddTask';
+import TaskList from './featuers/lecturer/TaskList';
 import { SelectCours } from './featuers/lecturer/SelectCours';
 import Meetings from './featuers/Nava/Meetings/Meetings';
+import LearningSpace from './featuers/Nava/LearningSpace/LearningSpace'
+
 
 function App() {
 
@@ -11,15 +11,12 @@ function App() {
 
   return (
     <div className="App">
-      {/* <h1>Maalot 360</h1> */}
-
-
+      
       <h1>Maalot 360</h1>
-      <TaskList/>
-        {/* <AddTask/> */}
-        <SelectCours />
-      <Meetings courseId="102"/>
-      </div>
+      <LearningSpace/>
+      <Meetings courseId={"102"}></Meetings>
+     
+    </div>
   );
 }
 

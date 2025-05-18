@@ -1,0 +1,191 @@
+/* Meetings.css */
+
+/* Container כללי */
+.meetings-container {
+    padding: 80px 20px;
+    background: #f9fafb;
+}
+
+/* כפתורי מנהלת והוספה */
+.add-button-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.manager-button,
+.additional-button {
+    background: linear-gradient(135deg, #3d91e4 0%, #75c1ff 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px 24px;
+    transition: background 0.3s;
+}
+
+.manager-button:hover,
+.additional-button:hover {
+    background: linear-gradient(135deg, #1e7fd5 0%, #53affa 100%);
+}
+
+.meetings-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin-top: 20px;
+    align-items: stretch; /* במקום center */
+  }
+  
+
+/* הכרטיס עצמו */
+/* שדרוג לכרטיס */
+.meeting-card {
+    max-width: 1000px;
+    background: linear-gradient(135deg, #ffffff, #f3f8fc);
+    border-left: 8px solid #1976d2;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.meeting-card:hover {
+    transform: scale(1.015);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* תוכן הכרטיס */
+.meeting-card-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* כותרת עם קו תחתון */
+.meeting-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 3px solid #1976d2;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+}
+
+/* שורה של אייקון + טקסט */
+.meeting-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* קבוצת כפתורים (edit/delete) */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px;
+    background: #f0f4f8;
+}
+
+.edit-btn,
+.delete-btn {
+    background: transparent;
+    color: #1976d2;
+    transition: color 0.3s;
+}
+
+.edit-btn:hover {
+    color: #0f4a87;
+}
+
+.delete-btn:hover {
+    color: #d32f2f;
+}
+
+/* פרטי מפגש נבחר */
+/* עיצוב פרטי השיעור */
+.single-meeting {
+    padding: 32px;
+    max-width: 700px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #ffffff, #f8fbff);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* תיאורים עם אייקונים */
+.single-meeting .meeting-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.single-meeting .meeting-row .MuiSvgIcon-root {
+    color: #1976d2;
+}
+
+/* כפתור סגור */
+.single-meeting .MuiButton-root {
+    background: linear-gradient(135deg, #3d91e4 0%, #75c1ff 100%);
+    color: #fff;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.single-meeting .MuiButton-root:hover {
+    background: linear-gradient(135deg, #1e7fd5 0%, #53affa 100%);
+}
+
+
+/* תצוגת וידאו */
+.video-box {
+    width: 160px;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* טופס */
+/* עיצוב כללי של הטופס */
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: linear-gradient(135deg, #ffffff, #f3f8fc);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+}
+
+/* שדות טופס עם קו תחתון */
+form .MuiTextField-root {
+    border-bottom: 2px solid #1976d2;
+    border-radius: 0;
+    padding-bottom: 12px;
+}
+
+/* אייקונים לשדות טופס */
+.form-content .MuiTextField-root .MuiInputAdornment-root {
+    color: #1976d2;
+}
+
+/* כותרת של טופס */
+.DialogTitle {
+    color: #1976d2;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+

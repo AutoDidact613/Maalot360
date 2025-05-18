@@ -21,7 +21,7 @@ root.render(
                     <Route path="/" element={<SelectCours />} />
                     <Route path="/add-task/:courseName" element={<AddTask />} />
                     <Route path="/TaskList/:courseName" element={<TaskList />} />
-                    <Route path="*" element={<App />} /> // נתיב ברירת מחדל
+                    <Route path="*" element={<App />} /> 
                 </Routes>
             </BrowserRouter>
         </Provider>
