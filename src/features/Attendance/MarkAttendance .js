@@ -1,119 +1,152 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import {
-  Box,
+  Checkbox,
+  Button,
   Typography,
+  Paper,
+  Box,
+  FormControlLabel,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
-  Button,
-  Paper,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
+  TextField,
 } from '@mui/material';
-import { setCourses } from './attendanceSlice'; // שים לב לייבוא של פונקציית ה-setCourses
+import { useSelector, useDispatch } from 'react-redux';
+import { setCourses } from './attendanceSlice'; // ודא שהנתיב נכון
+
+// מחזיר את התאריך הנוכחי בפורמט YYYY-MM-DD
+const getTodayDate = () => {
+  const today = new Date();
+  return today.toISOString().split('T')[0];
+};
 
 export default function MarkAttendance() {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.attendance.courses);
+
   const [selectedCourseId, setSelectedCourseId] = useState('');
-  const [selectedDate, setSelectedDate] = useState('');
+  const [date, setDate] = useState(getTodayDate());
   const [attendance, setAttendance] = useState({});
 
-  const handleAttendanceChange = (studentId, value) => {
+  const course = courses.find((c) => c.id === selectedCourseId);
+
+  // טוען נוכחות כשמשתנים קורס או תאריך
+  useEffect(() => {
+    if (!course || !date) {
+      setAttendance({});
+      return;
+    }
+
+    const newAttendance = {};
+    course.students.forEach((student) => {
+      newAttendance[student.id] = student.attendance?.[date] || false;
+    });
+    setAttendance(newAttendance);
+  }, [course, date]);
+
+  const handleCheckboxChange = (studentId) => {
     setAttendance((prev) => ({
       ...prev,
-      [studentId]: value,
+      [studentId]: !prev[studentId],
     }));
   };
 
-  const handleSaveAttendance = () => {
-    // שמירה (למשל, עדכון ב-Redux או שליחה לשרת)
-    console.log('Attendance saved:', attendance);
-    alert('הנוכחות נשמרה!');
+  const handleSave = () => {
+    if (!course || !date) return;
+
+    const updatedCourses = courses.map((c) => {
+      if (c.id !== course.id) return c;
+
+      const updatedStudents = c.students.map((student) => ({
+        ...student,
+        attendance: {
+          ...student.attendance,
+          [date]: attendance[student.id] || false,
+        },
+      }));
+
+      const updatedSessions = c.sessions.includes(date)
+        ? c.sessions
+        : [...c.sessions, date];
+
+      return {
+        ...c,
+        sessions: updatedSessions,
+        students: updatedStudents,
+      };
+    });
+
+    dispatch(setCourses(updatedCourses));
+    alert('נוכחות נשמרה בהצלחה');
   };
 
-  const selectedCourse = courses.find((course) => course.id === selectedCourseId);
-
   return (
-    <Box sx={{ padding: 4, direction: 'rtl', textAlign: 'center' }}>
-      <Typography variant="h5" gutterBottom>
-        ניהול נוכחות
+    <Box sx={{ padding: 4, direction: 'rtl', maxWidth: 600, margin: '0 auto' }}>
+      <Typography variant="h5" align="center" gutterBottom>
+        רישום נוכחות למרצה
       </Typography>
 
-      <FormControl sx={{ m: 2, minWidth: 200 }}>
-        <InputLabel>בחר קורס</InputLabel>
+      <FormControl fullWidth margin="normal">
+        <InputLabel id="course-select-label">בחר קורס</InputLabel>
         <Select
+          labelId="course-select-label"
           value={selectedCourseId}
-          onChange={(e) => setSelectedCourseId(e.target.value)}
+          label="בחר קורס"
+          onChange={(e) => {
+            setSelectedCourseId(e.target.value);
+            setAttendance({});
+          }}
         >
-          {courses.map((course) => (
-            <MenuItem key={course.id} value={course.id}>
-              {course.name} ({course.id})
+          {courses.map((c) => (
+            <MenuItem key={c.id} value={c.id}>
+              {c.name}
             </MenuItem>
           ))}
         </Select>
       </FormControl>
 
-      {selectedCourse && (
-        <>
-          <FormControl sx={{ m: 2, minWidth: 200 }}>
-            <InputLabel>בחר תאריך</InputLabel>
-            <Select
-              value={selectedDate}
-              onChange={(e) => setSelectedDate(e.target.value)}
+      <FormControl fullWidth margin="normal">
+        <TextField
+          label="תאריך"
+          type="date"
+          variant="outlined"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          InputLabelProps={{ shrink: true }}
+        />
+      </FormControl>
+
+      {course && (
+        <Paper sx={{ padding: 2, marginTop: 2 }}>
+          <Typography variant="h6">
+            תלמידות בקורס: {course.name}
+          </Typography>
+
+          {course.students.map((student) => (
+            <FormControlLabel
+              key={student.id}
+              control={
+                <Checkbox
+                  checked={attendance[student.id] || false}
+                  onChange={() => handleCheckboxChange(student.id)}
+                />
+              }
+              label={student.name}
+            />
+          ))}
+
+          <Box mt={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              fullWidth
+              onClick={handleSave}
             >
-              {selectedCourse.sessions.map((date) => (
-                <MenuItem key={date} value={date}>
-                  {date}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-
-          <Paper sx={{ marginTop: 4, overflowX: 'auto' }}>
-            <Typography variant="h6" sx={{ padding: 2 }}>
-              נוכחות לקורס {selectedCourse.name} בתאריך {selectedDate}
-            </Typography>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell align="center">תלמיד</TableCell>
-                  <TableCell align="center">נוכחות</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {selectedCourse.students.map((student) => (
-                  <TableRow key={student.id}>
-                    <TableCell align="center">{student.name}</TableCell>
-                    <TableCell align="center">
-                      <Select
-                        value={attendance[student.id] || ''}
-                        onChange={(e) => handleAttendanceChange(student.id, e.target.value)}
-                      >
-                        <MenuItem value={true}>נוכח</MenuItem>
-                        <MenuItem value={false}>לא נוכח</MenuItem>
-                      </Select>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </Paper>
-
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{ marginTop: 2 }}
-            onClick={handleSaveAttendance}
-          >
-            שמור נוכחות
-          </Button>
-        </>
+              שמור נוכחות
+            </Button>
+          </Box>
+        </Paper>
       )}
     </Box>
   );

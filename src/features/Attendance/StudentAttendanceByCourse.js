@@ -42,10 +42,11 @@ export default function AttendanceTable() {
             setSelectedCourseId(e.target.value);
             setSelectedStudentId('');
           }}
+          label="בחר קורס"
         >
           {courses.map((course) => (
             <MenuItem key={course.id} value={course.id}>
-              {course.name} ({course.id})
+              {course.name}
             </MenuItem>
           ))}
         </Select>
@@ -57,10 +58,11 @@ export default function AttendanceTable() {
           <Select
             value={selectedStudentId}
             onChange={(e) => setSelectedStudentId(e.target.value)}
+            label="בחר משתלמת"
           >
             {selectedCourse.students.map((student) => (
               <MenuItem key={student.id} value={student.id}>
-                {student.name} ({student.id})
+                {student.name}
               </MenuItem>
             ))}
           </Select>

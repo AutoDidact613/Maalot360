@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
-  TextField,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
   Table,
   TableBody,
   TableCell,
@@ -10,30 +13,38 @@ import {
   TableRow,
   Paper,
   Typography,
-  Box
+  Box,
 } from '@mui/material';
 import { CheckCircle, Cancel } from '@mui/icons-material';
 
 export default function CoursePage() {
+  const courses = useSelector((state) => state.attendance.courses);
   const [courseId, setCourseId] = useState('');
-  const course = useSelector((state) =>
-    state.attendance.courses.find((c) => c.id === courseId)
-  );
+  const course = courses.find((c) => c.id === courseId);
 
   return (
-    <Box sx={{ padding: '20px', direction: 'rtl', maxWidth: '1000px', margin: '0 auto' }}>
+    <Box sx={{ padding: 3, direction: 'rtl', maxWidth: 1000, margin: '0 auto' }}>
       <Typography variant="h4" gutterBottom align="center">
         צפייה בנוכחות לפי קורס
       </Typography>
-      
-      <TextField
-        label="הכנס קוד קורס (למשל: c1)"
-        variant="outlined"
-        value={courseId}
-        onChange={(e) => setCourseId(e.target.value)}
-        fullWidth
-        style={{ marginBottom: '15px', maxWidth: '300px', margin: '0 auto' }}
-      />
+
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+        <FormControl fullWidth sx={{ maxWidth: 300 }}>
+          <InputLabel id="course-select-label">בחר קורס</InputLabel>
+          <Select
+            labelId="course-select-label"
+            value={courseId}
+            onChange={(e) => setCourseId(e.target.value)}
+            label="בחר קורס"
+          >
+            {courses.map((course) => (
+              <MenuItem key={course.id} value={course.id}>
+                {course.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
 
       {course ? (
         <>
@@ -44,13 +55,19 @@ export default function CoursePage() {
             מרצה: {course.teacher}
           </Typography>
 
-          <TableContainer component={Paper} style={{ marginTop: '20px', maxWidth: '100%' }}>
+          <TableContainer component={Paper} sx={{ mt: 3 }}>
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell align="center" style={{ width: '20%' }}>תלמידה</TableCell>
+                  <TableCell align="center" sx={{ width: '20%' }}>
+                    תלמידה
+                  </TableCell>
                   {course.sessions.map((date) => (
-                    <TableCell key={date} align="center" style={{ width: `${80 / course.sessions.length}%` }}>
+                    <TableCell
+                      key={date}
+                      align="center"
+                      sx={{ width: `${80 / course.sessions.length}%` }}
+                    >
                       {date}
                     </TableCell>
                   ))}
@@ -59,9 +76,9 @@ export default function CoursePage() {
               <TableBody>
                 {course.students.map((student) => (
                   <TableRow key={student.id}>
-                    <TableCell>{student.name}</TableCell>
+                    <TableCell align="center">{student.name}</TableCell>
                     {course.sessions.map((date) => (
-                      <TableCell key={date} style={{ textAlign: 'center' }}>
+                      <TableCell key={date} align="center">
                         {student.attendance[date] ? (
                           <CheckCircle color="success" />
                         ) : (
@@ -76,7 +93,11 @@ export default function CoursePage() {
           </TableContainer>
         </>
       ) : (
-        courseId && <Typography color="error" align="center">לא נמצא קורס עם הקוד הזה.</Typography>
+        courseId && (
+          <Typography color="error" align="center" sx={{ mt: 2 }}>
+            לא נמצא קורס.
+          </Typography>
+        )
       )}
     </Box>
   );
