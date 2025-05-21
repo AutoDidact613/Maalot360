@@ -12,6 +12,8 @@ import Navbar from './components/Navbar';
 import Users from './components/Users';
 import Todos from './components/Todos';
 import Items from './components/Items';
+import LearningSpace from './features/LearningSpace/LearningSpace';
+import Meetings from './features/Meetings/Meetings'
 
 //childern of tasks  >>>
 import { SelectCours } from './features/lecturer/SelectCours';
@@ -54,6 +56,9 @@ function App() {
         <Route path="/chat" element={<Chat />} />
         <Route path="/users" element={<Users />} />
         <Route path="/items" element={<Items />} />
+        <Route path="/meetings" element={<Meetings courseId={"102"}></Meetings>} />
+        <Route path="/learningSpace" element={<LearningSpace/>} />
+
       </Routes>
     </>
   );

@@ -1,5 +1,4 @@
 
-
 import { configureStore } from '@reduxjs/toolkit'
 import eventReducer from "../features/events/EventsSlice";
 import updateReducer from "../features/update/UpdatesSlice";
@@ -12,6 +11,7 @@ import questionSlice from '../features/lecturer/questionSlice'
 import attendanceReduce from '../features/Attendance/attendanceSlice'
 import studentSlice from "../features/students/studentSlice";
 import courseSlice from "../features/courses/courseSlice.js";
+import MeetingsSlice from "../features/Meetings/MeetingsSlice.jsx"
 
 
 export const store = configureStore({
@@ -26,8 +26,8 @@ export const store = configureStore({
     questions: questionSlice,
     attendance: attendanceReduce,
     users: studentSlice,
-    courses:courseSlice
-
+    courses:courseSlice,
+    meetings:MeetingsSlice
 
 
   },

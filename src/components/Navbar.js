@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+// const Navigation = () => {
 const Navbar = () => {
   return (
     <nav>
@@ -14,6 +16,8 @@ const Navbar = () => {
         <li><Link to="/todos">Todos</Link></li>
         <li><Link to="/attendance">Attendance</Link></li>
         <li><Link to="/chat">Chat</Link></li>
+        <li><Link to="/meetings">Meetings</Link></li>
+         <li><Link to="/learningSpace">LearningSpace</Link></li>
         <li><Link to="/users">Users</Link></li>
         <li><Link to="/items">Items</Link></li>
       </ul>
