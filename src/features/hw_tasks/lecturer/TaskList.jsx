@@ -39,6 +39,7 @@ import CategoryIcon from '@mui/icons-material/Category';
 import BookIcon from '@mui/icons-material/Book';
 import { deleteTask, updatedTask } from './taskSlice';
 import { TextSnippet } from '@mui/icons-material';
+import { updateHW_task } from './hw_taskApi';
 
 // פונקציה להמרת סוג המטלה לעברית
 const getTaskTypeHebrew = (type) => {
@@ -97,6 +98,7 @@ const TaskList = () => {
     const [editDialogOpen, setEditDialogOpen] = useState(false);
     const [currentTask, setCurrentTask] = useState(null);
     const [editedTask, setEditedTask] = useState({
+        _id:'',
         name: '',
         desc: '',
         lessonId: '',
@@ -187,7 +189,7 @@ const TaskList = () => {
     const handleEditClick = (task) => {
         setCurrentTask(task);
         setEditedTask({
-            id: task.id,
+            _id: task._id,
             name: task.name,
             desc: task.desc,
             lessonId: task.lessonId,
@@ -201,8 +203,19 @@ const TaskList = () => {
 
     // שמירת שינויים בעריכה
     const handleSaveEdit = () => {
-        dispatch(updatedTask(editedTask));
-        setEditDialogOpen(false);
+
+        updateHW_task(editedTask).then(data=>{
+            console.log(data);
+            dispatch(updatedTask(editedTask));
+            setEditDialogOpen(false);
+        }
+
+        ).catch(e=>{
+            alert("מצטערים");
+            console.log(e);
+      
+        })
+
     };
 
     // מחיקת מטלה
