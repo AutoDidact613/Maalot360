@@ -28,6 +28,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import { createTheme } from '@mui/material/styles';
+import { addHW_task } from './hw_taskApi';
 
 
 const theme = createTheme({
@@ -143,14 +144,28 @@ export const AddTask = () => {
     const handleSaveTaskOnly = () => {
         if (task.name.trim() && task.course.trim()) {
             if (isEditMode) {
+
+
+                //axios לעדכון
                 dispatch(updatedTask(task));
             } else {
                 const newTask = {
                     ...task,
                     id: Date.now().toString()
                 };
-                dispatch(addTask(newTask));
-                setSavedTaskId(newTask.id);
+
+                addHW_task(newTask).then(data => {
+                    console.log(data);
+                    newTask._id = data._id;
+                    dispatch(addTask(newTask));
+                    setSavedTaskId(newTask.id);
+
+                }).catch(e => {
+                    alert("מצטערים, שגיאת שרת. אין אפשרות להוסיף את המטלה")
+                    console.log(e);
+                })
+
+
             }
             setSuccessMessage('המטלה נשמרה בהצלחה!');
             setSnackbarOpen(true);

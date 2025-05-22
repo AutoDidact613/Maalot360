@@ -1,14 +1,27 @@
 import React, { useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Outlet, useNavigate } from "react-router";
-import axios from 'axios';
+import { getAllHW_tasks } from '../features/hw_tasks/lecturer/hw_taskApi';
+import { useDispatch } from 'react-redux';
+import { initTask } from '../features/hw_tasks/lecturer/taskSlice';
 
 const Tasks = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
 
   useEffect(() => {
-   
+
+
+    getAllHW_tasks().then(data => {
+      console.log(data);
+      dispatch(initTask(data));
+    }).catch(e => {
+      console.log(e);
+      alert("שגיאת שרת. מתנצלים. נסה מאוחר יותר.");
+    })
+
+
+
   }, [])
 
   return (

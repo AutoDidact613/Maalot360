@@ -10,6 +10,9 @@ const taskSlice = createSlice({
     name: 'taskSlice', // שינוי השם ל-taskSlice
     initialState,
     reducers: {
+        initTask:(state, action)=>{
+                state.tasks = action.payload;
+        },
         addTask: (state, action) => {
             const task = action.payload;
             task.id = Date.now().toString();
@@ -44,7 +47,7 @@ const taskSlice = createSlice({
     }
 });
 
-export const { addTask, updatedTask, deleteTask, addQuestions, submitTask } = taskSlice.actions;
+export const { addTask, updatedTask, deleteTask, addQuestions, submitTask, initTask } = taskSlice.actions;
 
 // תיקון הסלקטורים
 export const getTaskById = (state, taskId) => {
