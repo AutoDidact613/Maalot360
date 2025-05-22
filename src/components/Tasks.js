@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Outlet, useNavigate } from "react-router";
+import axios from 'axios';
 
 const Tasks = () => {
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+   
+  }, [])
 
   return (
     <div>
