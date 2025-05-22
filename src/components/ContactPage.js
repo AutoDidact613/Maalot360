@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addRegistration } from './registrationSlice';
+import { addRegistration } from '../../../src/features/registration/registrationSlice';
 import { Box, TextField, Button, Typography, Grid, Alert, Snackbar } from '@mui/material';
 
 export default function ContactPage() {

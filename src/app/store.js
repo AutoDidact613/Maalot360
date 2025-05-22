@@ -14,9 +14,11 @@ import studentSlice from "../features/students/studentSlice";
 import courseSlice from "../features/courses/courseSlice.js";
 import chatReducer from '../features/Chat/chatSlice';
 import chatManagerReducer from '../features/Chat/chatManagerSlice';
+import registrationReducer from '../features/registration/registrationSlice';
 
 export const store = configureStore({
   reducer: {
+    registration: registrationReducer, 
     events: eventReducer,
     updates: updateReducer,
     users: usersReducer,

@@ -16,7 +16,7 @@ import {Table, TableBody,TableCell, TableContainer,TableHead,TableRow,Paper, Che
 import { styled } from "@mui/material/styles";
 import { useSelector, useDispatch } from "react-redux"; // ייבוא Redux hooks
 import * as XLSX from "xlsx"; // ייבוא ספריית xlsx
-import { addRegistration, markAsRead, deleteRegistration } from "./registrationSlice"; // ייבוא הפעולה אם נדרש
+import { addRegistration, markAsRead, deleteRegistration } from "../../../src/features/registration/registrationSlice"; // ייבוא הפעולה אם נדרש
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   fontWeight: "bold",
