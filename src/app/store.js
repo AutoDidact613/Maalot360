@@ -12,7 +12,8 @@ import questionSlice from '../features/hw_tasks/lecturer/questionSlice'
 import attendanceReduce from '../features/Attendance/attendanceSlice'
 import studentSlice from "../features/students/studentSlice";
 import courseSlice from "../features/courses/courseSlice.js";
-
+import chatReducer from '../features/Chat/chatSlice';
+import chatManagerReducer from '../features/Chat/chatManagerSlice';
 
 export const store = configureStore({
   reducer: {
@@ -26,10 +27,12 @@ export const store = configureStore({
     questions: questionSlice,
     attendance: attendanceReduce,
     users: studentSlice,
-    courses:courseSlice
-
+    courses:courseSlice,
+    Chatt: chatReducer,
+    chatManager: chatManagerReducer
 
 
   },
-})
+});
+
 

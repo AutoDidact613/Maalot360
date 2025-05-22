@@ -7,11 +7,11 @@ import Teachers from './components/Teachers';
 import Events from './components/Events';
 import Tasks from './components/Tasks';
 import Attendance from './components/Attendance';
-import Chat from './components/Chat';
 import Navbar from './components/Navbar';
 import Users from './components/Users';
 import Todos from './components/Todos';
 import Items from './components/Items';
+import Chat from './features/Chat/Chatt';
 
 //childern of tasks  >>>
 import { SelectCours } from './features/hw_tasks/lecturer/SelectCours';
