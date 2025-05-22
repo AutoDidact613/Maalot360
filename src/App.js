@@ -14,14 +14,14 @@ import Todos from './components/Todos';
 import Items from './components/Items';
 
 //childern of tasks  >>>
-import { SelectCours } from './features/lecturer/SelectCours';
-import StudentTasks from './features/student/StudentTasks';
-import { AddTask } from './features/lecturer/AddTask';
-import StudentQuestions from './features/student/StudentQuestions';
-import SubmissionHistory from './features/student/SubmissionHistory';
-import QuestionsList from './features/lecturer/QuestionsList';
-import TaskList from './features/lecturer/TaskList';
-import AddQuestions from './features/lecturer/AddQuestions';
+import { SelectCours } from './features/hw_tasks/lecturer/SelectCours';
+import StudentTasks from './features/hw_tasks/student/StudentTasks';
+import { AddTask } from './features/hw_tasks/lecturer/AddTask';
+import StudentQuestions from './features/hw_tasks/student/StudentQuestions';
+import SubmissionHistory from './features/hw_tasks/student/SubmissionHistory';
+import QuestionsList from './features/hw_tasks/lecturer/QuestionsList';
+import TaskList from './features/hw_tasks/lecturer/TaskList';
+import AddQuestions from './features/hw_tasks/lecturer/AddQuestions';
 //childern of tasks  <<<
 
 function App() {
