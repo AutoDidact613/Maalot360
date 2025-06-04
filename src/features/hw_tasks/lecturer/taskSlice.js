@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const taskSlice = createSlice({
-    name: 'taskSlice', // שינוי השם ל-taskSlice
+    name: 'taskSlice', 
     initialState,
     reducers: {
         initTask:(state, action)=>{
